@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">WikiGames</string>
+    <string name="text1">Create Now</string>
+    <string name="text2">Login to your account</string>
 </resources>
