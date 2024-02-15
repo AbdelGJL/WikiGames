@@ -18,6 +18,13 @@ class MainActivity : AppCompatActivity() {
             Game("Apex Legends", R.drawable.apex),
             Game("Apex Legends", R.drawable.apex),
             Game("Apex Legends", R.drawable.apex),
+            Game("Apex Legends", R.drawable.apex),
+            Game("Apex Legends", R.drawable.apex),
+            Game("Apex Legends", R.drawable.apex),
+            Game("Apex Legends", R.drawable.apex),
+            Game("Apex Legends", R.drawable.apex),
+            Game("Apex Legends", R.drawable.apex),
+            Game("Apex Legends", R.drawable.apex),
             Game("Apex Legends", R.drawable.apex)
         )
         val adapter = GamesAdapter(this, R.layout.item_games, GamesArray)
