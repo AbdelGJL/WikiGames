@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.LinearLayout
 import android.widget.ListView
-import android.widget.Toast
 
 
 class MainActivity : AppCompatActivity() {
@@ -36,11 +36,18 @@ class MainActivity : AppCompatActivity() {
 
         listGames.setOnItemClickListener { adpaterView, view, position, id ->
             val clickedPost = gamesArray[position]
-            Intent(this, Details_Placeholder::class.java).also {
-                //it.putExtra("titre", clickedPost.title)
-                startActivity(it)
-            }
+            val intent = Intent(this, GameInfo::class.java)
+            intent.putExtra("game_title", clickedPost.title)
+            startActivity(intent)
         }
+
+        findViewById<LinearLayout>(R.id.profile_navbar).setOnClickListener {
+            val intent = Intent(this, Profile::class.java)
+            startActivity(intent)
+        }
+
+
     }
+
 }
 

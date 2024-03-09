@@ -26,8 +26,7 @@ class GamesAdapter(
 
         itemView.setOnClickListener {
             // Lorsque l'utilisateur clique sur un élément de la liste
-            // Vous pouvez mettre ici le code pour démarrer l'activité de détails avec les données de ce jeu
-            val intent = Intent(aContext, Details_Placeholder::class.java)
+            val intent = Intent(aContext, GameInfo::class.java)
             intent.putExtra("game_title", post.title)
             aContext.startActivity(intent)
         }

@@ -16,7 +16,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/pop_background">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imageg"
@@ -39,16 +40,17 @@
             android:textColor="@color/black"
             android:textSize="20sp" />
 
-        <Button
-            android:id="@+id/button"
+        <ImageButton
+            android:id="@+id/favorite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="275dp"
+            android:layout_marginEnd="20dp"
             android:layout_marginTop="15dp"
+            android:layout_alignParentEnd="true"
             android:text="Favori"
-            android:textColor="#FFFFFF"
-            android:textColorHighlight="#A3FFFFFF"
-            android:textColorLink="#7A7136A6"
+            android:src="@drawable/heart"
+            android:background="@android:color/transparent"
+            android:contentDescription="add to favorite"
             app:layout_constraintStart_toEndOf="@+id/imageg"
             app:layout_constraintTop_toBottomOf="@+id/titleg" />
 

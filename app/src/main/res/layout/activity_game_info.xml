@@ -19,12 +19,15 @@
         app:layout_constraintStart_toStartOf="parent"
         >
 
-        <ImageView
+        <ImageButton
             android:id="@+id/back_arrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
+            android:contentDescription="Return to previous page"
             android:layout_marginStart="20dp"
+            android:background="@android:color/transparent"
+            android:onClick="onBackArrowClicked"
             android:src="@drawable/back_arrow" />
 
         <Space
@@ -60,7 +63,7 @@
             app:layout_constraintVertical_bias="0">
 
             <ImageView
-                android:id="@+id/profile"
+                android:id="@+id/imageGame"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_marginStart="50dp"
@@ -70,7 +73,7 @@
                 tools:srcCompat="@drawable/apex" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/titleGame"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -80,7 +83,7 @@
                 android:textSize="30sp" />
 
             <TextView
-                android:id="@+id/genre"
+                android:id="@+id/genres"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -92,7 +95,7 @@
                 android:textSize="22sp" />
 
             <TextView
-                android:id="@+id/release"
+                android:id="@+id/releaseDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -144,6 +147,11 @@ iojdfilksoighdfskjlgfjdsklng,fsdp
 "
                 android:textColor="@color/offwhite"
                 android:textSize="20sp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1" />
         </LinearLayout>
 
     </ScrollView>
