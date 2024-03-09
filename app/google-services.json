@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "248586359939",
+    "firebase_url": "https://wikigames-be826-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "wikigames-be826",
+    "storage_bucket": "wikigames-be826.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:248586359939:android:b43eaba5045041023137b6",
+        "android_client_info": {
+          "package_name": "com.example.wikigames"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNH9endv9I8MOfTi_P3rT0pBz9LZW-Xtg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

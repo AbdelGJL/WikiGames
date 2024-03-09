@@ -31,8 +31,6 @@
         android:layout_marginBottom="80dp"
         android:dividerHeight="10dp"
         android:divider="@android:color/transparent"
-
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
