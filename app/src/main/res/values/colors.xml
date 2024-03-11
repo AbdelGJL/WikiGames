@@ -3,4 +3,15 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="whiteproject">#BFBFBF</color>
+    <color name="lilac">#C3A4F4</color>
+    <color name="offwhite">#F0EDF6</color>
+    <color name="darkpurple">#6B3EA8</color>
+    <color name="darkcolor">#160724</color>
+
+    <!-- couleurs estompées -->
+    <color name="darkpurple50">#806B3EA8</color>  <!-- 50% de 6B3EA8 -->
+    <color name="darkcolor50">#80160724</color>  <!-- 50% de 160724 -->
+    <color name="offwhite50">#80F0EDF6</color>
+    <color name="offwhite80">#CCF0EDF6</color>  <!-- 80% de F0EDF6 -->
+    <color name="darkcolor80">#CC160724</color> <!-- 80% de CC160724 -->
 </resources>

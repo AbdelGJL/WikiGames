@@ -1,8 +1,16 @@
 <resources>
     <string name="app_name">WikiGames</string>
+
     <string name="text1">Create Now</string>
     <string name="text2">Login to your account</string>
     <string name="text3">Create a new account</string>
     <string name="text4">Don’t have account?</string>
     <string name="text5">Already have account? </string>
+    <string name="title_activity_favorite">FavoriteActivity</string>
+    <string-array name="games">
+        <item>Game 1</item>
+        <item>Game 2</item>
+        <item>Game 3</item>
+        <item>Game 4</item>
+    </string-array>
 </resources>

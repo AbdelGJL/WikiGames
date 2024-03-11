@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GameInfo"
+    android:background="@drawable/background">
+
+    <LinearLayout
+        android:id="@+id/horizontal_layout_up"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+
+        <ImageButton
+            android:id="@+id/back_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:contentDescription="Return to previous page"
+            android:layout_marginStart="20dp"
+            android:background="@android:color/transparent"
+            android:onClick="onBackArrowClicked"
+            android:src="@drawable/back_arrow" />
+
+        <Space
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/heart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/heart" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="205dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <LinearLayout
+            android:id="@+id/vertical_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@id/horizontal_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0">
+
+            <ImageView
+                android:id="@+id/imageGame"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginEnd="50dp"
+                android:scaleType="centerCrop"
+                tools:srcCompat="@drawable/apex" />
+
+            <TextView
+                android:id="@+id/titleGame"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Nom du jeu"
+                android:textAlignment="center"
+                android:textColor="@color/offwhite"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/genres"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="genre1 - genre2 - genre3 - genre4 - genre5"
+                android:textAlignment="center"
+                android:textColor="@color/offwhite"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/releaseDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="20dp"
+                android:text="Release date : 01/05/2025"
+                android:textAlignment="textStart"
+                android:textColor="@color/offwhite"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/entreprise"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:text="Entreprises : Bandai, Sony"
+                android:textAlignment="textStart"
+                android:textColor="@color/offwhite"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/biotxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/pop_background"
+                android:paddingStart="20dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="10dp"
+                android:text="Bio text
+jknfs
+kfslnfsjfkdsn, fd,s;nfkdsnf,d;vijofnkdg, fvnsdv,fjdslkn,fdsnvg f,dsnvjkfdsngvfdsnjv d
+nsdk,bfndskjgnfds;ngjfdksngfjkdsnjkv ,;dsfvjfidksjiflek
+fjdionsgfsdjgiofnkds g,;fvdsjigndfsjiovnjdk
+jfidosbgfndsibfknsgjdkslg,fsdjigf
+jfidnjbkgsdfkjlgn,dsf;gjrken,f;dsjoinklre
+jfkdnsbgjfdsjgionr;eiokngre
+jginfdjbkgfsnjgk,fdikgjnf,ds
+jiokngkfdjsngjksjgiofnler
+jiogkdfdlgjklflkjdsfgnk,f;dsjogifds
+jgiofhnkdsfjlgkf,odsjfdkslpre
+jgiodfhgn,fdsgkfsdhgior
+iojdfilksoighdfskjlgfjdsklng,fsdp
+"
+                android:textColor="@color/offwhite"
+                android:textSize="20sp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
