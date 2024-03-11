@@ -26,7 +26,7 @@
             android:scaleType="center"
             android:layout_marginTop="60dp"/>
 
-        <TextView
+        <EditText
             android:id="@+id/pseudo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
             android:layout_marginEnd="20dp"
             android:layout_marginTop="70dp"/>
 
-        <TextView
+        <EditText
             android:id="@+id/biotxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -55,9 +55,9 @@
             android:background="@drawable/pop_background"
             android:textColor="@color/offwhite"
             android:textSize="20sp"
-            android:paddingTop="10dp"
+            android:paddingTop="15dp"
             android:paddingEnd="20dp"
-            android:paddingBottom="10dp"
+            android:paddingBottom="15dp"
             android:paddingStart="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"

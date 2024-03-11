@@ -1,4 +1,4 @@
-/* package com.example.wikigames
+/*package com.example.wikigames
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -29,7 +29,8 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, MenuActivity::class.java)
         startActivity(intent)
     }
-} */
+}*/
+
 package com.example.wikigames
 
 import android.content.Intent
@@ -38,7 +39,10 @@ import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.Firebase
+import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.initialize
 
 class MainActivity : AppCompatActivity() {
 
@@ -47,6 +51,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
+
+        FirebaseApp.initializeApp(this)
+
 
         val editText = findViewById<EditText>(R.id.textView7)
         firebaseAuth = FirebaseAuth.getInstance()

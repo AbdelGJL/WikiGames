@@ -37,10 +37,11 @@ class MenuActivity : AppCompatActivity() {
         db.collection("games").get()
             .addOnSuccessListener {
                 if(!it.isEmpty){
-                    for(data in it.documents){
-                        val title = data.getString("title") ?: ""
-                        val image = data.getString("image") ?: ""
-                        val game = Game(title, image)
+                    for(document in it.documents){
+                        val gameId = document.id
+                        val title = document.getString("title") ?: ""
+                        val image = document.getString("image") ?: ""
+                        val game = Game(gameId,title, image)
                         if (game!=null){
                             gamesArray.add(game)
                         }
@@ -58,36 +59,6 @@ class MenuActivity : AppCompatActivity() {
                     startActivity(intent)
                 }*/
             }
-
-
-
-
-
-        /*val gamesArray = arrayListOf(
-            Game("Genshin Impact", R.drawable.genshin),
-            Game("Rocket League", R.drawable.rl),
-            Game("Apex Legends", R.drawable.apex),
-            Game("Apex Legends", R.drawable.apex),
-            Game("Apex Legends", R.drawable.apex),
-            Game("Apex Legends", R.drawable.apex),
-            Game("Apex Legends", R.drawable.apex),
-            Game("Apex Legends", R.drawable.apex),
-            Game("Apex Legends", R.drawable.apex),
-            Game("Apex Legends", R.drawable.apex),
-            Game("Apex Legends", R.drawable.apex),
-            Game("Apex Legends", R.drawable.apex),
-            Game("Apex Legends", R.drawable.apex),
-            Game("Apex Legends", R.drawable.apex)
-        )
-        val adapter = GamesAdapter(this, R.layout.item_games, gamesArray)
-        listGames.adapter = adapter
-
-        listGames.setOnItemClickListener { adpaterView, view, position, id ->
-            val clickedPost = gamesArray[position]
-            val intent = Intent(this, GameInfo::class.java)
-            intent.putExtra("game_title", clickedPost.title)
-            startActivity(intent)
-        }*/
 
         findViewById<LinearLayout>(R.id.profile_navbar).setOnClickListener {
             val intent = Intent(this, Profile::class.java)
