@@ -12,7 +12,7 @@ class Profile : AppCompatActivity() {
         setContentView(R.layout.activity_profile)
 
         findViewById<LinearLayout>(R.id.home_navbar).setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
         }
 
