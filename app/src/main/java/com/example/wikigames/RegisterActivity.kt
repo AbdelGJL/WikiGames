@@ -71,6 +71,7 @@ class RegisterActivity : AppCompatActivity() {
         val password = passwordEditText.text.toString()
         val bio = ""
         val favori: MutableList<String>? = null // mutableListOf("élément1", "élément2", "élément3")
+        val profile = ""
 
         if (email.isNotEmpty() && password.isNotEmpty() && username.isNotEmpty()) {
             // Firebase authentication for user registration
@@ -86,7 +87,8 @@ class RegisterActivity : AppCompatActivity() {
                             "mail" to email,
                             "password" to password,
                             "biography" to bio,
-                            "favori" to favori
+                            "favori" to favori,
+                            "profile picture" to profile
                         )
 
                         val userId = firebaseAuth.currentUser!!.uid

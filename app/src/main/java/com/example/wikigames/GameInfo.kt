@@ -55,14 +55,27 @@ class GameInfo : AppCompatActivity() {
                 }
             }
 
+        val heartImage = findViewById<ImageView>(R.id.heart)
+        var isHeartFilled = false // Variable pour suivre l'état actuel du cœur
+
+        heartImage.setOnClickListener {
+            // Changer l'image du cœur en fonction de son état actuel
+            if (isHeartFilled) {
+                heartImage.setImageResource(R.drawable.heart) // Si le cœur est rempli, changez-le pour le cœur vide
+            } else {
+                heartImage.setImageResource(R.drawable.heart_filled) // Sinon, changez-le pour le cœur rempli
+            }
+
+            isHeartFilled = !isHeartFilled // Inversez l'état du cœur pour le prochain clic
+        }
+
 
         val backArrow = findViewById<ImageButton>(R.id.back_arrow)
+        backArrow.setOnClickListener {
+            finish() // Termine l'activité actuelle lors du clic sur la flèche de retour
+        }
 
 
-    }
-
-    fun onBackArrowClicked(view: View) {
-        finish()
     }
 
 
