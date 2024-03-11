@@ -8,6 +8,7 @@ import android.widget.TextView
 import android.widget.ImageView
 import android.content.Intent
 import android.util.Log
+import com.bumptech.glide.Glide
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.squareup.picasso.Picasso
@@ -22,18 +23,23 @@ class GamesAdapter(
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val post = values[position]
         val itemView = LayoutInflater.from(aContext).inflate(ressource, parent, false)
-        val titleg = itemView.findViewById<TextView>(R.id.titleg)
-        val imageg = itemView.findViewById<ImageView>(R.id.imageg)
+        var titleg = itemView.findViewById<TextView>(R.id.titleg)
+        var imageg = itemView.findViewById<ImageView>(R.id.imageg)
         titleg.text = post.title
         //imageg.setImageResource(post.image)
 
         Log.d("MainActivity", "Image name: ${post.image}")
 
-        var imageUrl = "gs://wikigames-be826.appspot.com/games_images/${post.image}"
-        Picasso.get().load(imageUrl)
+        var imageUrl = "${post.image}"
+        /*Picasso.get()
+            .load(post.image)
             .resize(50, 50)
-            .into(imageg)
+            .into(imageg)*/
 
+        Glide.with(context)
+            .load(post.image)
+            .override(imageg.width / 2, imageg.height / 2) // Redimensionne l'image à 50% de sa taille d'origine
+            .into(imageg)
 
         itemView.setOnClickListener {
             // Lorsque l'utilisateur clique sur un élément de la liste
