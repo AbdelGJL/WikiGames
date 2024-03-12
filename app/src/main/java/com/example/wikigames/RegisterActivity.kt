@@ -84,8 +84,6 @@ class RegisterActivity : AppCompatActivity() {
                         //modification debut
                         val userMap= hashMapOf(
                             "username" to username,
-                            "mail" to email,
-                            "password" to password,
                             "biography" to bio,
                             "favori" to favori,
                             "profile picture" to profile
