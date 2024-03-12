@@ -39,10 +39,10 @@ import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.Firebase
+//import com.google.firebase.Firebase
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.initialize
+//import com.google.firebase.initialize
 
 class MainActivity : AppCompatActivity() {
 
@@ -53,18 +53,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.login)
 
         FirebaseApp.initializeApp(this)
-
-
-        val editText = findViewById<EditText>(R.id.textView7)
         firebaseAuth = FirebaseAuth.getInstance()
-
-        editText.setOnClickListener {
-            // Lorsque l'utilisateur clique sur le ConstraintLayout, le texte est vidé
-            editText.text.clear()
-        }
     }
 
-    // fonction pour aller vers la page d'une plante
+    // fonction pour aller vers la page register pour créer un compte
     fun onClick(view: View) {
         val intent = Intent(this, RegisterActivity::class.java)
         startActivity(intent)
