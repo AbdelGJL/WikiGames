@@ -1,16 +1,17 @@
 package com.example.wikigames
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
 
 
 class GameInfo : AppCompatActivity() {
@@ -69,14 +70,10 @@ class GameInfo : AppCompatActivity() {
             isHeartFilled = !isHeartFilled // Inversez l'état du cœur pour le prochain clic
         }
 
-
-        val backArrow = findViewById<ImageButton>(R.id.back_arrow)
-        backArrow.setOnClickListener {
-            finish() // Termine l'activité actuelle lors du clic sur la flèche de retour
-        }
-
-
     }
 
+    fun onBackArrowPressed(view: View){
+        finish()
+    }
 
 }

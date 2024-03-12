@@ -1,6 +1,7 @@
 package com.example.wikigames
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +11,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
 
 
 class GamesAdapter(
@@ -48,7 +48,21 @@ class GamesAdapter(
             aContext.startActivity(intent)
         }
 
+        val heartImage = itemView.findViewById<ImageView>(R.id.favorite)
+        var isHeartFilled = false // Variable pour suivre l'état actuel du cœur
+
+        heartImage.setOnClickListener {
+            // Changer l'image du cœur en fonction de son état actuel
+            if (isHeartFilled) {
+                heartImage.setImageResource(R.drawable.heart) // Si le cœur est rempli, changez-le pour le cœur vide
+            } else {
+                heartImage.setImageResource(R.drawable.heart_filled) // Sinon, changez-le pour le cœur rempli
+            }
+
+            isHeartFilled = !isHeartFilled // Inversez l'état du cœur pour le prochain clic
+        }
 
         return itemView
     }
+
 }

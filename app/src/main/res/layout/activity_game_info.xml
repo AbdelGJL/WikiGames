@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GameInfo"
-    android:background="@drawable/background">
+    android:background="@drawable/background"
+    android:importantForAutofill="no"
+    android:autofillHints="false">
 
     <LinearLayout
         android:id="@+id/horizontal_layout_up"
@@ -25,9 +27,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="0"
             android:contentDescription="Return to previous page"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="20dp"
+            android:paddingTop="20dp"
+            android:onClick="onBackArrowPressed"
             android:background="@android:color/transparent"
-            android:onClick="onButtonClicked"
             android:src="@drawable/back_arrow" />
 
         <Space
@@ -47,9 +53,9 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="205dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/horizontal_layout_up"
+        tools:layout_editor_absoluteX="205dp">
 
         <LinearLayout
             android:id="@+id/vertical_layout"
@@ -76,8 +82,8 @@
                 android:id="@+id/titleGame"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:text="Nom du jeu"
                 android:textAlignment="center"

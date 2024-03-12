@@ -2,6 +2,7 @@ package com.example.wikigames
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -39,11 +40,15 @@ class Profile : AppCompatActivity() {
                     val storageRef = FirebaseStorage.getInstance().getReferenceFromUrl(document.getString("profile picture").toString())
                     val imageRef = storageRef.root.child(document.getString("profile picture").toString())
 
-                    storageRef.downloadUrl.addOnSuccessListener{ uri ->
-                        Glide.with(this)
-                            .load(uri)
-                            .into(profile)
+
+                    if (storageRef.toString().isNotEmpty()) {
+                        storageRef.downloadUrl.addOnSuccessListener { uri ->
+                            Glide.with(this)
+                                .load(uri)
+                                .into(profile)
+                        }
                     }
+
                 }
             }
 
@@ -63,3 +68,4 @@ class Profile : AppCompatActivity() {
 
 
 }
+

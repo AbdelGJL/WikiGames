@@ -71,7 +71,7 @@ class RegisterActivity : AppCompatActivity() {
         val password = passwordEditText.text.toString()
         val bio = ""
         val favori: MutableList<String>? = null // mutableListOf("élément1", "élément2", "élément3")
-        val profile = ""
+        val profile = "gs://wikigames-be826.appspot.com/profile_pictures/profilepicture.png"
 
         if (email.isNotEmpty() && password.isNotEmpty() && username.isNotEmpty()) {
             // Firebase authentication for user registration
@@ -84,8 +84,6 @@ class RegisterActivity : AppCompatActivity() {
                         //modification debut
                         val userMap= hashMapOf(
                             "username" to username,
-                            "mail" to email,
-                            "password" to password,
                             "biography" to bio,
                             "favori" to favori,
                             "profile picture" to profile
