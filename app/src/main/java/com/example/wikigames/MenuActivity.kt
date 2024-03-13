@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter
 import android.widget.LinearLayout
 import android.widget.ListView
 import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.firestore
 import com.google.firebase.firestore.toObject
@@ -17,7 +18,7 @@ import com.google.firebase.storage.storage
 
 
 class MenuActivity : AppCompatActivity() {
-    private var db = Firebase.firestore
+    /*private var db = Firebase.firestore
     private var storage = Firebase.storage
     private lateinit var gamesArray: ArrayList<Game>
 
@@ -65,8 +66,69 @@ class MenuActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        //à compléter
+        findViewById<LinearLayout>(R.id.favorite_navbar).setOnClickListener {
+            val intent = Intent(this, FavoriteActivity::class.java)
+            startActivity(intent)
+        }
 
+    }*/
+    private var db = Firebase.firestore
+    private var storage = Firebase.storage
+    private lateinit var gamesArray: ArrayList<Game>
+    private lateinit var listGames: ListView
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.menu)
+
+        listGames = findViewById<ListView>(R.id.gamesList)
+        gamesArray = arrayListOf()
+
+        findViewById<LinearLayout>(R.id.profile_navbar).setOnClickListener {
+            val intent = Intent(this, Profile::class.java)
+            startActivity(intent)
+        }
+
+        findViewById<LinearLayout>(R.id.favorite_navbar).setOnClickListener {
+            val intent = Intent(this, FavoriteActivity::class.java)
+            startActivity(intent)
+        }
     }
+
+    override fun onResume() {
+        super.onResume()
+        updateListView()
+    }
+
+    private fun updateListView() {
+        gamesArray.clear() // Clear the old data
+
+        // Fetch the data from Firebase and update the ListView
+        val currentUser = FirebaseAuth.getInstance().currentUser!!.uid
+        val docRef = db.collection("user").document(currentUser)
+
+        docRef.get().addOnSuccessListener { document ->
+            val favorites = document.get("favori") as List<String>
+
+            db.collection("games").get()
+                .addOnSuccessListener {
+                    if(!it.isEmpty){
+                        for(gameDocument in it.documents){
+                            val gameId = gameDocument.id
+                            val title = gameDocument.getString("title") ?: ""
+                            val image = gameDocument.getString("image") ?: ""
+                            val isFavorite = favorites.contains(gameId)
+                            val game = Game(gameId, title, image, isFavorite)
+                            gamesArray.add(game)
+                        }
+                        val adapter = GamesAdapter(this, R.layout.item_games, gamesArray)
+                        listGames.adapter = adapter
+                    }
+                }
+        }
+    }
+
 
 }
 

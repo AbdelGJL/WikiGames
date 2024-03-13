@@ -22,6 +22,9 @@
             android:name=".MenuActivity"
             android:exported="false" />
         <activity
+            android:name=".FavoriteActivity"
+            android:exported="false" />
+        <activity
             android:name=".Game"
             android:exported="false" />
         <activity

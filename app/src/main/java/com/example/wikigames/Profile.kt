@@ -60,6 +60,12 @@ class Profile : AppCompatActivity() {
             startActivity(intent)
         }
 
+        //à compléter
+        findViewById<LinearLayout>(R.id.favorite_navbar).setOnClickListener {
+            val intent = Intent(this, FavoriteActivity::class.java)
+            startActivity(intent)
+        }
+
         val imageGame = findViewById<ImageView>(R.id.profile)
         imageGame.setImageResource(R.drawable.profile_icon)
 

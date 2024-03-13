@@ -10,6 +10,8 @@ import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.firestore
 import com.google.firebase.storage.FirebaseStorage
 
@@ -19,6 +21,7 @@ class GameInfo : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_info)
+
 
         val id = intent.getStringExtra("game_id")
         val gameTitle = findViewById<TextView>(R.id.titleGame)
@@ -56,19 +59,46 @@ class GameInfo : AppCompatActivity() {
                 }
             }
 
-        val heartImage = findViewById<ImageView>(R.id.heart)
-        var isHeartFilled = false // Variable pour suivre l'état actuel du cœur
+        //val heartImage = findViewById<ImageView>(R.id.heart)
+        //var isHeartFilled = post.isFavorite // Variable pour suivre l'état actuel du cœur
 
-        heartImage.setOnClickListener {
-            // Changer l'image du cœur en fonction de son état actuel
+
+        val ids = intent.getStringExtra("game_id")
+        //val currentUser = FirebaseAuth.getInstance().currentUser!!.uid
+
+        val heartImage = findViewById<ImageView>(R.id.heart)
+        val currentUser = FirebaseAuth.getInstance().currentUser!!.uid
+        val docuRef = db.collection("user").document(currentUser)
+
+        // Vérifiez si le jeu est déjà dans les favoris
+        docuRef.get().addOnSuccessListener { document ->
+            val favorites = document.get("favori") as List<String>
+            var isHeartFilled = favorites.contains(id)
+
+            // Mettre à jour l'image du cœur en fonction de isHeartFilled
             if (isHeartFilled) {
-                heartImage.setImageResource(R.drawable.heart) // Si le cœur est rempli, changez-le pour le cœur vide
+                heartImage.setImageResource(R.drawable.heart_filled)
             } else {
-                heartImage.setImageResource(R.drawable.heart_filled) // Sinon, changez-le pour le cœur rempli
+                heartImage.setImageResource(R.drawable.heart)
             }
 
-            isHeartFilled = !isHeartFilled // Inversez l'état du cœur pour le prochain clic
+            heartImage.setOnClickListener {
+                // Changer l'image du cœur en fonction de son état actuel
+                if (isHeartFilled) {
+                    heartImage.setImageResource(R.drawable.heart) // Si le cœur est rempli, changez-le pour le cœur vide
+                    // Supprimer l'ID du jeu de la liste des favoris de l'utilisateur
+                    docuRef.update("favori", FieldValue.arrayRemove(id))
+                } else {
+                    heartImage.setImageResource(R.drawable.heart_filled) // Sinon, changez-le pour le cœur rempli
+                    // Ajouter l'ID du jeu à la liste des favoris de l'utilisateur
+                    docuRef.update("favori", FieldValue.arrayUnion(id))
+                }
+
+                isHeartFilled = !isHeartFilled // Inversez l'état du cœur pour le prochain clic
+            }
         }
+
+
 
     }
 
