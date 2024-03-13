@@ -19,7 +19,8 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/gamesListF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="@font/monospacebold" />
 
     <ListView
         android:id="@+id/gamesListF"
@@ -73,7 +74,8 @@
                 android:layout_weight="1"
                 android:text="Favorites"
                 android:textColor="@color/offwhite80"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:fontFamily="@font/monospaceregular"/>
 
         </LinearLayout>
 
@@ -100,7 +102,8 @@
                 android:layout_weight="1"
                 android:text="Home"
                 android:textColor="@color/offwhite80"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:fontFamily="@font/monospaceregular"/>
 
         </LinearLayout>
 
@@ -127,7 +130,8 @@
                 android:layout_weight="1"
                 android:textColor="@color/offwhite80"
                 android:text="Profile"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:fontFamily="@font/monospaceregular"/>
 
         </LinearLayout>
 

@@ -70,10 +70,10 @@
 
             <ImageView
                 android:id="@+id/imageGame"
-                android:layout_width="match_parent"
+                android:layout_width="350dp"
                 android:layout_height="200dp"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="75dp"
                 android:layout_marginEnd="50dp"
                 android:scaleType="fitCenter"
                 tools:srcCompat="@drawable/apex" />
@@ -88,7 +88,8 @@
                 android:text="Nom du jeu"
                 android:textAlignment="center"
                 android:textColor="@color/offwhite"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                android:fontFamily="@font/monospacebold" />
 
             <TextView
                 android:id="@+id/genres"
@@ -100,7 +101,8 @@
                 android:text="genre1 - genre2 - genre3 - genre4 - genre5"
                 android:textAlignment="center"
                 android:textColor="@color/offwhite"
-                android:textSize="22sp" />
+                android:textSize="22sp"
+                android:fontFamily="@font/monospaceregular"/>
 
             <TextView
                 android:id="@+id/releaseDate"
@@ -109,6 +111,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="25dp"
                 android:layout_marginEnd="20dp"
+                android:fontFamily="@font/monospaceregular"
                 android:text="Release date : 01/05/2025"
                 android:textAlignment="textStart"
                 android:textColor="@color/offwhite"
@@ -124,7 +127,8 @@
                 android:text="Entreprises : Bandai, Sony"
                 android:textAlignment="textStart"
                 android:textColor="@color/offwhite"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:fontFamily="@font/monospaceregular"/>
 
             <TextView
                 android:id="@+id/biotxt"
@@ -154,7 +158,8 @@ jgiodfhgn,fdsgkfsdhgior
 iojdfilksoighdfskjlgfjdsklng,fsdp
 "
                 android:textColor="@color/offwhite"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:fontFamily="@font/monospaceregular"/>
 
             <Space
                 android:layout_width="0dp"

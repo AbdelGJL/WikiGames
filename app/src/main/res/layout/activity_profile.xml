@@ -60,7 +60,8 @@
             android:textAlignment="center"
             android:textSize="30sp"
             android:textColor="@color/offwhite"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/monospaceregular"/>
 
         <TextView
             android:id="@+id/textView2"
@@ -72,7 +73,8 @@
             android:layout_marginBottom="10dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginTop="70dp"/>
+            android:layout_marginTop="70dp"
+            android:fontFamily="@font/monospaceregular"/>
 
         <TextView
             android:id="@+id/biotxt"
@@ -88,7 +90,8 @@
             android:paddingStart="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginTop="2dp"/>
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/monospaceregular"/>
 
 
     </LinearLayout>
@@ -129,7 +132,8 @@
                 android:layout_weight="1"
                 android:text="Favorite"
                 android:textColor="@color/offwhite80"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:fontFamily="@font/monospaceregular"/>
 
         </LinearLayout>
 
@@ -156,7 +160,8 @@
                 android:layout_weight="1"
                 android:text="Home"
                 android:textColor="@color/offwhite80"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:fontFamily="@font/monospaceregular"/>
 
         </LinearLayout>
 
@@ -183,7 +188,8 @@
                 android:layout_weight="1"
                 android:textColor="@color/offwhite80"
                 android:text="Profile"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:fontFamily="@font/monospaceregular"/>
 
         </LinearLayout>
 
