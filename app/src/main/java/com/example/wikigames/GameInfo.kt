@@ -72,8 +72,8 @@ class GameInfo : AppCompatActivity() {
 
         // Vérifiez si le jeu est déjà dans les favoris
         docuRef.get().addOnSuccessListener { document ->
-            val favorites = document.get("favori") as List<String>
-            var isHeartFilled = favorites.contains(id)
+            val favorites = document.get("favori") as? List<String>
+            var isHeartFilled = favorites?.contains(id) ?: false
 
             // Mettre à jour l'image du cœur en fonction de isHeartFilled
             if (isHeartFilled) {

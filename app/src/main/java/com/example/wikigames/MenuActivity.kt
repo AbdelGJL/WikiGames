@@ -86,13 +86,19 @@ class MenuActivity : AppCompatActivity() {
         gamesArray = arrayListOf()
 
         findViewById<LinearLayout>(R.id.profile_navbar).setOnClickListener {
-            val intent = Intent(this, Profile::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, Profile::class.java))
+            this@MenuActivity.overridePendingTransition(
+                R.anim.animate_slide_left_enter,
+                R.anim.animate_slide_left_exit
+            )
         }
 
         findViewById<LinearLayout>(R.id.favorite_navbar).setOnClickListener {
-            val intent = Intent(this, FavoriteActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, FavoriteActivity::class.java))
+            this@MenuActivity.overridePendingTransition(
+                R.anim.animate_slide_in_left,
+                R.anim.animate_slide_out_right
+            )
         }
     }
 
@@ -109,7 +115,7 @@ class MenuActivity : AppCompatActivity() {
         val docRef = db.collection("user").document(currentUser)
 
         docRef.get().addOnSuccessListener { document ->
-            val favorites = document.get("favori") as List<String>
+            val favorites = document.get("favori") as? List<String>
 
             db.collection("games").get()
                 .addOnSuccessListener {
@@ -118,7 +124,7 @@ class MenuActivity : AppCompatActivity() {
                             val gameId = gameDocument.id
                             val title = gameDocument.getString("title") ?: ""
                             val image = gameDocument.getString("image") ?: ""
-                            val isFavorite = favorites.contains(gameId)
+                            val isFavorite = favorites?.contains(gameId) ?: false
                             val game = Game(gameId, title, image, isFavorite)
                             gamesArray.add(game)
                         }

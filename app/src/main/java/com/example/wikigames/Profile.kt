@@ -58,16 +58,22 @@ class Profile : AppCompatActivity() {
         findViewById<LinearLayout>(R.id.home_navbar).setOnClickListener {
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
+            this@Profile.overridePendingTransition(
+                R.anim.animate_slide_in_left,
+                R.anim.animate_slide_out_right
+            )
         }
 
         //à compléter
         findViewById<LinearLayout>(R.id.favorite_navbar).setOnClickListener {
             val intent = Intent(this, FavoriteActivity::class.java)
             startActivity(intent)
+            this@Profile.overridePendingTransition(
+                R.anim.animate_slide_in_left,
+                R.anim.animate_slide_out_right
+            )
         }
 
-        val imageGame = findViewById<ImageView>(R.id.profile)
-        imageGame.setImageResource(R.drawable.profile_icon)
 
     }
 

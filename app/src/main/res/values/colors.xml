@@ -14,4 +14,7 @@
     <color name="offwhite50">#80F0EDF6</color>
     <color name="offwhite80">#CCF0EDF6</color>  <!-- 80% de F0EDF6 -->
     <color name="darkcolor80">#CC160724</color> <!-- 80% de CC160724 -->
+    <color name="navbar_lilac">#CCC3A4F4</color> <!-- 80% de C3A4F4 -->
+
+
 </resources>
