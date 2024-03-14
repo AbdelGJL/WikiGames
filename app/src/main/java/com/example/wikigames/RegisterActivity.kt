@@ -121,5 +121,9 @@ class RegisterActivity : AppCompatActivity() {
     fun onReverse(view: View) {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
+        this@RegisterActivity.overridePendingTransition(
+            R.anim.animate_slide_in_left,
+            R.anim.animate_slide_out_right
+        )
     }
 }

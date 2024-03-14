@@ -60,6 +60,10 @@ class MainActivity : AppCompatActivity() {
     fun onClick(view: View) {
         val intent = Intent(this, RegisterActivity::class.java)
         startActivity(intent)
+        this@MainActivity.overridePendingTransition(
+            R.anim.animate_slide_left_enter,
+            R.anim.animate_slide_left_exit
+        )
     }
 
     fun onContinue(view: View) {
