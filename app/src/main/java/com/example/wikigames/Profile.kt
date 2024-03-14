@@ -41,13 +41,13 @@ class Profile : AppCompatActivity() {
                     val imageRef = storageRef.root.child(document.getString("profile picture").toString())
 
 
-                    if (storageRef.toString().isNotEmpty()) {
-                        storageRef.downloadUrl.addOnSuccessListener { uri ->
-                            Glide.with(this)
-                                .load(uri)
-                                .into(profile)
-                        }
+
+                    storageRef.downloadUrl.addOnSuccessListener { uri ->
+                        Glide.with(this)
+                            .load(uri)
+                            .into(profile)
                     }
+
 
                 }
             }

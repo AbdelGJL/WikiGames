@@ -72,8 +72,8 @@
                 android:id="@+id/imageGame"
                 android:layout_width="350dp"
                 android:layout_height="200dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="75dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="50dp"
                 android:scaleType="fitCenter"
                 tools:srcCompat="@drawable/apex" />
@@ -137,26 +137,13 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
+                android:layout_marginBottom="70dp"
                 android:background="@drawable/pop_background"
                 android:paddingStart="20dp"
                 android:paddingTop="10dp"
                 android:paddingEnd="20dp"
                 android:paddingBottom="10dp"
-                android:text="Bio text
-jknfs
-kfslnfsjfkdsn, fd,s;nfkdsnf,d;vijofnkdg, fvnsdv,fjdslkn,fdsnvg f,dsnvjkfdsngvfdsnjv d
-nsdk,bfndskjgnfds;ngjfdksngfjkdsnjkv ,;dsfvjfidksjiflek
-fjdionsgfsdjgiofnkds g,;fvdsjigndfsjiovnjdk
-jfidosbgfndsibfknsgjdkslg,fsdjigf
-jfidnjbkgsdfkjlgn,dsf;gjrken,f;dsjoinklre
-jfkdnsbgjfdsjgionr;eiokngre
-jginfdjbkgfsnjgk,fdikgjnf,ds
-jiokngkfdjsngjksjgiofnler
-jiogkdfdlgjklflkjdsfgnk,f;dsjogifds
-jgiofhnkdsfjlgkf,odsjfdkslpre
-jgiodfhgn,fdsgkfsdhgior
-iojdfilksoighdfskjlgfjdsklng,fsdp
-"
+                android:text="Bio text"
                 android:textColor="@color/offwhite"
                 android:textSize="20sp"
                 android:fontFamily="@font/monospaceregular"/>
