@@ -32,9 +32,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import android.text.method.PasswordTransformationMethod
+import android.text.method.HideReturnsTransformationMethod
 
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -125,5 +128,24 @@ class RegisterActivity : AppCompatActivity() {
             R.anim.animate_slide_in_left,
             R.anim.animate_slide_out_right
         )
+    }
+
+    fun togglePasswordVisibility(view: View) {
+        //val heartImage = findViewById<ImageView>(R.id.heart)
+        val editTextPassword = findViewById<EditText>(R.id.textView8)
+        val imageViewEye = findViewById<ImageView>(R.id.imageView)
+
+        if (editTextPassword.transformationMethod == PasswordTransformationMethod.getInstance()) {
+            // Show password
+            editTextPassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
+            imageViewEye.setImageResource(R.drawable.openeye_removebg_preview)
+        } else {
+            // Hide password
+            editTextPassword.transformationMethod = PasswordTransformationMethod.getInstance()
+            imageViewEye.setImageResource(R.drawable.closeeye_removebg_preview)
+        }
+
+        // Move cursor to the end of the text
+        editTextPassword.setSelection(editTextPassword.text.length)
     }
 }
