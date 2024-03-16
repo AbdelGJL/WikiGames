@@ -7,94 +7,104 @@
     tools:context=".Profile"
     android:background="@drawable/background">
 
-    <LinearLayout
-        android:id="@+id/vertical_layout"
+    <ScrollView
+        android:id="@+id/scrollview"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/horizontal_layout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="85dp"
+        tools:layout_editor_absoluteX="205dp">
 
-        <ImageButton
-            android:id="@+id/editProfile"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:scaleType="centerCrop"
-            android:background="@android:color/transparent"
-            app:srcCompat="@drawable/edit"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:paddingEnd="5dp"
-            android:paddingStart="5dp"
-            android:layout_gravity="end"
-            android:contentDescription="edit the profile"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"/>
-
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/profile"
-            app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@drawable/profile_icon"
-            android:scaleType="centerCrop"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="5dp"
-            app:layout_constraintStart_toStartOf="parent"
+        <LinearLayout
+            android:id="@+id/vertical_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@id/horizontal_layout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0">
+
+            <ImageButton
+                android:id="@+id/editProfile"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:scaleType="centerCrop"
+                android:background="@android:color/transparent"
+                app:srcCompat="@drawable/edit"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingEnd="5dp"
+                android:paddingStart="5dp"
+                android:layout_gravity="end"
+                android:contentDescription="edit the profile"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"/>
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/profile"
+                app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/profile_icon"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
 
 
-        <TextView
-            android:id="@+id/pseudo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Pseudo"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:textAlignment="center"
-            android:textSize="30sp"
-            android:textColor="@color/offwhite"
-            android:layout_marginTop="5dp"
-            android:fontFamily="@font/monospaceregular"/>
+            <TextView
+                android:id="@+id/pseudo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pseudo"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textColor="@color/offwhite"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/monospaceregular"/>
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Bio :"
-            android:textColor="@color/offwhite"
-            android:textSize="25sp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="40dp"
-            android:fontFamily="@font/monospaceregular"/>
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bio :"
+                android:textColor="@color/offwhite"
+                android:textSize="25sp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/monospaceregular"/>
 
-        <TextView
-            android:id="@+id/biotxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Bio text"
-            android:background="@drawable/pop_background"
-            android:textColor="@color/offwhite"
-            android:textSize="20sp"
-            android:paddingTop="15dp"
-            android:paddingEnd="20dp"
-            android:paddingBottom="15dp"
-            android:paddingStart="20dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="2dp"
-            android:fontFamily="@font/monospaceregular"/>
+            <TextView
+                android:id="@+id/biotxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bio text"
+                android:background="@drawable/pop_background"
+                android:textColor="@color/offwhite"
+                android:textSize="20sp"
+                android:paddingTop="15dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="15dp"
+                android:paddingStart="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/monospaceregular"/>
 
 
-    </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
 
     <LinearLayout
         android:id="@+id/horizontal_layout"
@@ -105,8 +115,7 @@
         android:elevation="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vertical_layout">
+        app:layout_constraintStart_toStartOf="parent">
 
 
         <LinearLayout
