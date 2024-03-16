@@ -79,6 +79,11 @@ class Profile : AppCompatActivity() {
             startActivity(intent)
         }
 
+        findViewById<ImageButton>(R.id.logout).setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
 
     }
 
