@@ -3,6 +3,7 @@ package com.example.wikigames
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -64,7 +65,7 @@ class Profile : AppCompatActivity() {
             )
         }
 
-        //à compléter
+
         findViewById<LinearLayout>(R.id.favorite_navbar).setOnClickListener {
             val intent = Intent(this, FavoriteActivity::class.java)
             startActivity(intent)
@@ -73,9 +74,14 @@ class Profile : AppCompatActivity() {
                 R.anim.animate_slide_out_right
             )
         }
+        findViewById<ImageButton>(R.id.editProfile).setOnClickListener {
+            val intent = Intent(this, Modification_profile::class.java)
+            startActivity(intent)
+        }
 
 
     }
+
 
 
 

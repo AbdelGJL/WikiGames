@@ -7,6 +7,8 @@
     tools:context=".Profile"
     android:background="@drawable/background">
 
+
+
     <ScrollView
         android:id="@+id/scrollview"
         android:layout_width="match_parent"
@@ -25,21 +27,25 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0">
 
+
             <ImageButton
                 android:id="@+id/editProfile"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:scaleType="centerCrop"
-                android:background="@android:color/transparent"
-                app:srcCompat="@drawable/edit"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:paddingEnd="5dp"
-                android:paddingStart="5dp"
                 android:layout_gravity="end"
-                android:contentDescription="edit the profile"
                 android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"/>
+                android:layout_marginEnd="20dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="edit the profile"
+                android:paddingStart="5dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="5dp"
+                android:paddingBottom="5dp"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/edit"
+                tools:ignore="MissingConstraints" />
+
+
 
 
             <com.google.android.material.imageview.ShapeableImageView
