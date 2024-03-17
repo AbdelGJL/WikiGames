@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
+import com.google.android.material.imageview.ShapeableImageView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
@@ -25,6 +26,7 @@ class Modification_profile : AppCompatActivity() {
     private lateinit var db: FirebaseFirestore
     private lateinit var profileImageView: ImageView
     private var profileImageUri: Uri? = null
+
 
     companion object {
         private const val PICK_IMAGE_REQUEST = 1
@@ -58,7 +60,8 @@ class Modification_profile : AppCompatActivity() {
                         Log.d("Modification_profile", "DocumentSnapshot data: ${document.data}")
                         val username = document.getString("username")
                         val bio = document.getString("biography")
-                        val profileImageUrl = document.getString("profile picture")
+                        //val profileImageUrl = document.getString("profile picture")
+                        val profileImageUrl = FirebaseStorage.getInstance().getReferenceFromUrl(document.getString("profile picture").toString())
 
                         val usernameEditText = findViewById<EditText>(R.id.text_username)
                         val bioEditText = findViewById<EditText>(R.id.text_bio)
@@ -66,13 +69,20 @@ class Modification_profile : AppCompatActivity() {
                         usernameEditText.setText(username)
                         bioEditText.setText(bio)
 
+                        profileImageUrl.downloadUrl.addOnSuccessListener { uri ->
+                            Glide.with(this)
+                                .load(uri)
+                                .into(profileImageView)
+                        }
+                        profileImageUri = Uri.parse(profileImageUrl.toString())
+
                         // Load the profile image
-                        if (profileImageUrl != null) {
+                        /*if (profileImageUrl != null) {
                             Glide.with(this)
                                 .load(profileImageUrl)
                                 .into(profileImageView)
                             profileImageUri = Uri.parse(profileImageUrl)
-                        }
+                        }*/
                     } else {
                         Log.d("Modification_profile", "No such document")
                     }
@@ -231,7 +241,7 @@ class Modification_profile : AppCompatActivity() {
                 val user = hashMapOf(
                     "username" to username,
                     "biography" to bio,
-                    "profile picture" to profileImageUri.toString()
+                    "profile picture" to "gs://wikigames-be826.appspot.com/profile_images/profilepicture.png"
                 )
 
                 // Update the user document with the new username and biography
