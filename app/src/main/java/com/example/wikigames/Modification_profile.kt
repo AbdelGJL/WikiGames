@@ -212,8 +212,8 @@ class Modification_profile : AppCompatActivity() {
                                     Toast.makeText(this, "Profile updated", Toast.LENGTH_SHORT).show()
                                     startActivity(Intent(this, Profile::class.java))
                                     this@Modification_profile.overridePendingTransition(
-                                        R.anim.animate_slide_left_enter,
-                                        R.anim.animate_slide_left_exit
+                                        R.anim.animate_slide_down_enter,
+                                        R.anim.animate_slide_down_exit
                                     )
                                 }
                                 .addOnFailureListener { e ->
@@ -241,8 +241,8 @@ class Modification_profile : AppCompatActivity() {
                         Log.d("Modification_profile", "User data successfully written!")
                         startActivity(Intent(this, Profile::class.java))
                         this@Modification_profile.overridePendingTransition(
-                            R.anim.animate_slide_left_enter,
-                            R.anim.animate_slide_left_exit
+                            R.anim.animate_slide_down_enter,
+                            R.anim.animate_slide_down_exit
                         )
                     }
                     .addOnFailureListener { e ->
@@ -256,8 +256,8 @@ class Modification_profile : AppCompatActivity() {
     fun onBack(view: View) {
         startActivity(Intent(this, Profile::class.java))
         this@Modification_profile.overridePendingTransition(
-            R.anim.animate_slide_left_enter,
-            R.anim.animate_slide_left_exit
+            R.anim.animate_slide_down_enter,
+            R.anim.animate_slide_down_exit
         )
     }
 

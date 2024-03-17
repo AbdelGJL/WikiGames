@@ -78,19 +78,21 @@ class Profile : AppCompatActivity() {
         findViewById<ImageButton>(R.id.editProfile).setOnClickListener {
             val intent = Intent(this, Modification_profile::class.java)
             startActivity(intent)
+            this@Profile.overridePendingTransition(
+                R.anim.animate_slide_up_enter,
+                R.anim.animate_slide_up_exit
+            )
         }
 
         findViewById<ImageButton>(R.id.logout).setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             Toast.makeText(this, "Successfully logged out", Toast.LENGTH_SHORT).show()
             startActivity(intent)
+            this@Profile.overridePendingTransition(
+                R.anim.animate_slide_in_left,
+                R.anim.animate_slide_out_right
+            )
         }
-
-
     }
-
-
-
-
 }
 
