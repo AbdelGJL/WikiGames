@@ -87,46 +87,4 @@ class FavoriteActivity : AppCompatActivity(){
             }
         }
     }
-    /*
-    private var db = Firebase.firestore
-    private lateinit var gamesArray: ArrayList<Game>
-    private lateinit var listGames: ListView
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.favorite)
-
-        listGames = findViewById<ListView>(R.id.gamesListF)
-        gamesArray = arrayListOf()
-
-        val currentUser = FirebaseAuth.getInstance().currentUser!!.uid
-        val docRef = db.collection("user").document(currentUser)
-
-        docRef.get().addOnSuccessListener { document ->
-            val favorites = document.get("favori") as List<String>
-
-            for (gameId in favorites) {
-                db.collection("games").document(gameId).get()
-                    .addOnSuccessListener { gameDocument ->
-                        val title = gameDocument.getString("title") ?: ""
-                        val image = gameDocument.getString("image") ?: ""
-                        val game = Game(gameId, title, image)
-                        gamesArray.add(game)
-
-                        val adapter = GamesAdapter(this, R.layout.item_games, gamesArray)
-                        listGames.adapter = adapter
-                    }
-            }
-        }
-
-        findViewById<LinearLayout>(R.id.profile_navbar).setOnClickListener {
-            val intent = Intent(this, Profile::class.java)
-            startActivity(intent)
-        }
-
-        findViewById<LinearLayout>(R.id.home_navbar).setOnClickListener {
-            val intent = Intent(this, MenuActivity::class.java)
-            startActivity(intent)
-        }
-    }*/
 }

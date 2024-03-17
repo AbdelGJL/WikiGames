@@ -63,7 +63,6 @@ class Modification_profile : AppCompatActivity() {
                         val bio = document.getString("biography")
                         val profileImageUrl = document.getString("profile picture")
                         existingProfileImageUrl = profileImageUrl // on sauvegarde l'ancienne valeur de l'image, au cas où aucun changement n'est fait
-                        //val profileImageUrl = FirebaseStorage.getInstance().getReferenceFromUrl(document.getString("profile picture").toString())
 
                         val usernameEditText = findViewById<EditText>(R.id.text_username)
                         val bioEditText = findViewById<EditText>(R.id.text_bio)
@@ -89,32 +88,6 @@ class Modification_profile : AppCompatActivity() {
                                 .into(profileImageView)
                         }
 
-
-                        /*profileImageUrl.downloadUrl.addOnSuccessListener { uri ->
-                            Glide.with(this)
-                                .load(uri)
-                                .into(profileImageView)
-                        }
-                        profileImageUri = Uri.parse(profileImageUrl.toString())*/
-
-                        // Load the profile image
-                        /*if (profileImageUrl != null && profileImageUrl.isNotEmpty()) {
-                            Glide.with(this)
-                                .load(profileImageUrl)
-                                .into(profileImageView)
-                            profileImageUri = Uri.parse(profileImageView.toString())
-                        }*/
-
-                        /*if (profileImageUrl != null && profileImageUrl.isNotEmpty()) {
-                            Glide.with(this)
-                                .load(profileImageUrl) // Utilisez l'URL existante pour charger l'image de profil
-                                .into(profileImageView)
-                        }else{
-                            Glide.with(this)
-                                .load("gs://wikigames-be826.appspot.com/profile_images/profilepicture.png") // Utilisez l'URL existante pour charger l'image de profil
-                                .into(profileImageView)
-                        }*/
-
                     } else {
                         Log.d("Modification_profile", "No such document")
                     }
@@ -125,8 +98,6 @@ class Modification_profile : AppCompatActivity() {
         }
     }
 
-
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.data != null) {
@@ -134,90 +105,6 @@ class Modification_profile : AppCompatActivity() {
             profileImageView.setImageURI(profileImageUri)
         }
     }
-    /*
-    fun onModify(view: View) {
-        val usernameEditText = findViewById<EditText>(R.id.text_username)
-        val bioEditText = findViewById<EditText>(R.id.text_bio)
-
-        val username = usernameEditText.text.toString()
-        val bio = bioEditText.text.toString()
-
-        val auth = FirebaseAuth.getInstance()
-        val currentUser = auth.currentUser
-
-        if (currentUser != null) {
-            val userId = currentUser.uid
-
-            val user = hashMapOf(
-                "username" to username,
-                "biography" to bio
-            )
-
-            db.collection("user").document(userId)
-                .update(user as Map<String, Any>)
-                .addOnSuccessListener {
-                    Log.d("Modification_profile", "User data successfully written!")
-                }
-                .addOnFailureListener { e ->
-                    Log.w("Modification_profile", "Error writing user data", e)
-                }
-
-            startActivity(Intent(this, Profile::class.java))
-            this@Modification_profile.overridePendingTransition(
-                R.anim.animate_slide_left_enter,
-                R.anim.animate_slide_left_exit
-            )
-
-
-        }
-    }*/
-    /* version 2
-    fun onModify(view: View) {
-        val usernameEditText = findViewById<EditText>(R.id.text_username)
-        val bioEditText = findViewById<EditText>(R.id.text_bio)
-
-        val username = usernameEditText.text.toString()
-        val bio = bioEditText.text.toString()
-
-        val auth = FirebaseAuth.getInstance()
-        val currentUser = auth.currentUser
-
-        if (currentUser != null) {
-            val userId = currentUser.uid
-
-            // Upload the profile image to Firebase Storage and update the profile image URL in the user document
-            val storageRef = FirebaseStorage.getInstance().reference
-            val profileImageRef = storageRef.child("profile_images/${UUID.randomUUID()}")
-            profileImageRef.putFile(profileImageUri!!)
-                .addOnSuccessListener {
-                    profileImageRef.downloadUrl.addOnSuccessListener { uri ->
-                        val user = hashMapOf(
-                            "username" to username,
-                            "biography" to bio,
-                            "profileImageUrl" to uri.toString()
-                        )
-
-                        // Update the user document with the new username, biography, and profile image URL
-                        db.collection("user").document(userId)
-                            .update(user as Map<String, Any>)
-                            .addOnSuccessListener {
-                                Log.d("Modification_profile", "User data successfully written!")
-                                startActivity(Intent(this, Profile::class.java))
-                                this@Modification_profile.overridePendingTransition(
-                                    R.anim.animate_slide_left_enter,
-                                    R.anim.animate_slide_left_exit
-                                )
-                            }
-                            .addOnFailureListener { e ->
-                                Log.w("Modification_profile", "Error writing user data", e)
-                            }
-                    }
-                }
-                .addOnFailureListener { e ->
-                    Log.w("Modification_profile", "Error uploading profile image", e)
-                }
-        }
-    }*/
 
     fun onModify(view: View) {
         val usernameEditText = findViewById<EditText>(R.id.text_username)

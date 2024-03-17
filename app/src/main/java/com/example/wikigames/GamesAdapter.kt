@@ -30,7 +30,6 @@ class GamesAdapter(
         var titleg = itemView.findViewById<TextView>(R.id.titleg)
         var imageg = itemView.findViewById<ImageView>(R.id.imageg)
         titleg.text = post.title
-        //imageg.setImageResource(post.image)
 
         Log.d("MainActivity", "Image name: ${post.image}")
 

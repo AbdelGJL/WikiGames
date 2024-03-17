@@ -58,13 +58,7 @@ class GameInfo : AppCompatActivity() {
                     }
                 }
             }
-
-        //val heartImage = findViewById<ImageView>(R.id.heart)
-        //var isHeartFilled = post.isFavorite // Variable pour suivre l'état actuel du cœur
-
-
         val ids = intent.getStringExtra("game_id")
-        //val currentUser = FirebaseAuth.getInstance().currentUser!!.uid
 
         val heartImage = findViewById<ImageView>(R.id.heart)
         val currentUser = FirebaseAuth.getInstance().currentUser!!.uid
@@ -97,9 +91,6 @@ class GameInfo : AppCompatActivity() {
                 isHeartFilled = !isHeartFilled // Inversez l'état du cœur pour le prochain clic
             }
         }
-
-
-
     }
 
     fun onBackArrowPressed(view: View){

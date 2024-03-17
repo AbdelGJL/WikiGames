@@ -54,9 +54,6 @@ class Profile : AppCompatActivity() {
                 }
             }
 
-
-
-
         findViewById<LinearLayout>(R.id.home_navbar).setOnClickListener {
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
