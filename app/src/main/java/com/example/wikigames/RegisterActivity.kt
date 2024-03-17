@@ -38,7 +38,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import android.text.method.PasswordTransformationMethod
 import android.text.method.HideReturnsTransformationMethod
-
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -53,21 +52,18 @@ class RegisterActivity : AppCompatActivity() {
 
     private var db= Firebase.firestore
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.register)
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-        // Initialize your UI elements
         usernameEditText = findViewById(R.id.editTextText)
         emailEditText = findViewById(R.id.textView7)
         passwordEditText = findViewById(R.id.textView8)
     }
 
-    // Function to handle the registration process
+    // fonction pour la création de compte
     fun onRegister(view: View) {
         val username = usernameEditText.text.toString()
         val email = emailEditText.text.toString()
@@ -77,14 +73,10 @@ class RegisterActivity : AppCompatActivity() {
         val profile = "gs://wikigames-be826.appspot.com/profile_images/profilepicture.png"
 
         if (email.isNotEmpty() && password.isNotEmpty() && username.isNotEmpty()) {
-            // Firebase authentication for user registration
+            // création de l'utilisateur dans la base de données d'authentification deFirebase
             firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-
-
-
-                        //modification debut
                         val userMap= hashMapOf(
                             "username" to username,
                             "biography" to bio,
@@ -94,11 +86,11 @@ class RegisterActivity : AppCompatActivity() {
 
                         val userId = firebaseAuth.currentUser!!.uid
 
+                        // création du document contenant les variables qui seront modifié dans les autres pages sur Firebase
+
                         db.collection("user").document(userId).set(userMap)
 
-
-// modification fin
-                        // Registration successful, navigate to the main activity or any other desired activity
+                        // la création de compte ayant réussi une pop up apparait pour le signaler pendant que l'on retourne sur la page principale pour s'authentifier
                         val intent = Intent(this, MainActivity::class.java)
                         Toast.makeText(
                             this, "Registration succesful !!",
@@ -107,7 +99,7 @@ class RegisterActivity : AppCompatActivity() {
                         startActivity(intent)
                         finish()
                     } else {
-                        // If registration fails, display a message to the user
+                        // de même si la création de compte n'a pas fonctionné une pop apparait pour le signaler
                         Toast.makeText(
                             this, "Registration failed: ${task.exception?.message}",
                             Toast.LENGTH_SHORT
@@ -120,7 +112,7 @@ class RegisterActivity : AppCompatActivity() {
     }
 
 
-    // Function to navigate back to the main activity
+    // fonction pour retourner sur la page login si on a oublier qu'on avait déjà un compte
     fun onReverse(view: View) {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
@@ -130,22 +122,22 @@ class RegisterActivity : AppCompatActivity() {
         )
     }
 
+    // function pour afficher/cacher le mot de passe
     fun togglePasswordVisibility(view: View) {
-        //val heartImage = findViewById<ImageView>(R.id.heart)
         val editTextPassword = findViewById<EditText>(R.id.textView8)
         val imageViewEye = findViewById<ImageView>(R.id.imageView)
 
         if (editTextPassword.transformationMethod == PasswordTransformationMethod.getInstance()) {
-            // Show password
+            // montre le mot de passe
             editTextPassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
             imageViewEye.setImageResource(R.drawable.openeye_removebg_preview)
         } else {
-            // Hide password
+            // cache le mot de passe
             editTextPassword.transformationMethod = PasswordTransformationMethod.getInstance()
             imageViewEye.setImageResource(R.drawable.closeeye_removebg_preview)
         }
 
-        // Move cursor to the end of the text
+        // met le curseur en fin de mot afin de ne pas entraver la saisie
         editTextPassword.setSelection(editTextPassword.text.length)
     }
 }

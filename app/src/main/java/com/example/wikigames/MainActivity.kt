@@ -42,17 +42,16 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-//import com.google.firebase.Firebase
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import android.content.SharedPreferences
 import android.widget.CheckBox
-//import com.google.firebase.initialize
+
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var firebaseAuth: FirebaseAuth
-    // Déclaration d'une variable SharedPreferences
+    // Déclaration d'une variable SharedPreferences afin de stocker les identifiants de connexions à la demande de l'utilisateur
     lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,15 +62,13 @@ class MainActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
 
         sharedPreferences = getSharedPreferences("loginPrefs", MODE_PRIVATE)
-        // Récupérer les vues et le bouton Remember Me
         val checkBoxRememberMe = findViewById<CheckBox>(R.id.checkBox)
-
         val emailEditText = findViewById<EditText>(R.id.textView7)
         val passwordEditText = findViewById<EditText>(R.id.textView8)
 
-        // Écouteur de changement pour le bouton Remember Me
+
         checkBoxRememberMe.setOnCheckedChangeListener { _, isChecked ->
-            // Si le bouton est coché, enregistrer les informations de connexion
+            // Si bouton coché, récupération des informations de connexion
             if (isChecked) {
                 val editor: SharedPreferences.Editor = sharedPreferences.edit()
                 editor.putString("email", emailEditText.text.toString())
@@ -79,7 +76,7 @@ class MainActivity : AppCompatActivity() {
                 editor.putBoolean("rememberMe", true)
                 editor.apply()
             } else {
-                // Si le bouton n'est pas coché, supprimer les informations de connexion enregistrées
+                // Si bouton pas coché, suppression des informations de connexion enregistrées
                 val editor: SharedPreferences.Editor = sharedPreferences.edit()
                 editor.remove("email")
                 editor.remove("password")
@@ -111,6 +108,7 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
+    //function mise sur le btn Login afin d'entrer dans l'application
     fun onContinue(view: View) {
         val emailEditText = findViewById<EditText>(R.id.textView7)
         val passwordEditText = findViewById<EditText>(R.id.textView8)
@@ -145,22 +143,21 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // function pour afficher/cacher le mot de passe
     fun togglePasswordVisibility(view: View) {
-        //val heartImage = findViewById<ImageView>(R.id.heart)
         val editTextPassword = findViewById<EditText>(R.id.textView8)
         val imageViewEye = findViewById<ImageView>(R.id.imageView)
 
         if (editTextPassword.transformationMethod == PasswordTransformationMethod.getInstance()) {
-            // Show password
+            // montre le mot de passe
             editTextPassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
             imageViewEye.setImageResource(R.drawable.openeye_removebg_preview)
         } else {
-            // Hide password
+            // cache le mot de passe
             editTextPassword.transformationMethod = PasswordTransformationMethod.getInstance()
             imageViewEye.setImageResource(R.drawable.closeeye_removebg_preview)
         }
-
-        // Move cursor to the end of the text
+        // met le curseur en fin de mot afin de ne pas entraver la saisie
         editTextPassword.setSelection(editTextPassword.text.length)
     }
 }
