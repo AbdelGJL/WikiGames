@@ -73,6 +73,8 @@ class MenuActivity : AppCompatActivity() {
         }
 
     }*/
+
+    
     private var db = Firebase.firestore
     private var storage = Firebase.storage
     private lateinit var gamesArray: ArrayList<Game>

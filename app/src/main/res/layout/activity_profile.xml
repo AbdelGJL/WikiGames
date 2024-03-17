@@ -92,7 +92,7 @@
                 android:textSize="30sp"
                 android:textColor="@color/offwhite"
                 android:layout_marginTop="5dp"
-                android:fontFamily="@font/monospaceregular"/>
+                android:fontFamily="@font/monospacebold"/>
 
             <TextView
                 android:id="@+id/textView2"
